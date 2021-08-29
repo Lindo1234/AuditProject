@@ -25,8 +25,8 @@ class AuditorServiceTest {
     @Test
     void b_read() {
         Auditor read = service.read(auditor.getAuditorID());
-        assertEquals("114", auditor.getAuditorID());
-        System.out.println("Read success" +read);
+        assertEquals("215041720", auditor.getAuditorID());
+        System.out.println("Read success " +read);
     }
 
 
@@ -34,7 +34,7 @@ class AuditorServiceTest {
     void c_update() {
         Auditor updated = new Auditor.Builder().copy(auditor).setAuditorSurname("Somtsai").build();
         assertNotNull(service.update(updated));
-        System.out.println("Update: " +updated );
+        System.out.println("Surname updated successfully: " +updated );
     }
 
     @Test

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import za.ac.cput.entity.issue.Issue;
 import za.ac.cput.entity.user.Auditor;
 import za.ac.cput.entity.user.AuditorData;
 import za.ac.cput.factory.user.AuditorFactory;
@@ -21,36 +22,40 @@ public class AuditorController {
 
     @Autowired
     private AuditorService auditorService;
-    @Autowired
-    private AuditorRaceService auditorRaceService;
 
-    @Autowired
-    private AuditorService auditorService;
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    @RequestMapping(value = "create", method = RequestMethod.POST)
+
+    public Auditor create(@RequestBody Auditor auditor) {
+        //@PostMapping("/create")
+        Auditor newauditor = AuditorFactory.buildAuditor(auditor.getAuditorID(), auditor.getAuditorFirstName(),
+                auditor.getAuditorSurname(), auditor.getCellphone());
+            return auditorService.create(newauditor);
 
 
-
-    @PostMapping("/create")
-    public Auditor create(@RequestBody AuditorData auditor){
-        //this handles everything related to the employee creation
-        auditor = AuditorFactory.buildAuditor(auditor.getAuditorID(), auditor.getAuditorFirstName(), auditor.getAuditorSurname(), auditor.getCellphone());
-    return auditorService.create(auditor);
     }
+        // @PostMapping("/create")
+        //public Auditor create(@RequestBody Auditor auditor) {
+        // return auditorService.create(auditor);
+        // }
+        //Create not working
 
-    @GetMapping("/read/{id}")
-    public Auditor read(@PathVariable String s){
-        return auditorService.read(s);
+      @GetMapping("/read{auditorID}")
+        public Auditor read (@PathVariable String auditorID){
+            return auditorService.read(auditorID);
+
     }
-
     @PostMapping("/update")
     public Auditor update(@RequestBody Auditor auditor){
        return auditorService.update(auditor);
     }
-    @DeleteMapping("/delete/{id}")
-    public boolean delete(@PathVariable String s){
-        return auditorService.delete(s);
-    }
 
+    //delete not working
+
+    @DeleteMapping("/delete")
+        public boolean delete(@RequestBody String auditorID){
+        return auditorService.delete(auditorID);
+
+    }
     @GetMapping("/getAll")
     public Set<Auditor> getAll(){
         return auditorService.getAll();

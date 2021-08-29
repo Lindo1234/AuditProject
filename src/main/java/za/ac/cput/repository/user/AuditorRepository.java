@@ -29,8 +29,8 @@ public class AuditorRepository implements IAuditorRepository {
     }
 
     @Override
-    public Auditor read(String s) {
-        return this.auditorDB.get(s);
+    public Auditor read(String auditorID) {
+        return this.auditorDB.get(auditorID);
     }
 
     @Override

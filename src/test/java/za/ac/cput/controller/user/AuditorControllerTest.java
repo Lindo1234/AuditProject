@@ -40,7 +40,7 @@ class AuditorControllerTest {
         String url = BASE_URL + "/read" + auditor.getAuditorID();
         System.out.println("URL: " + url);
         ResponseEntity<Auditor> response = restTemplate.getForEntity(url, Auditor.class);
-        assertEquals(auditor.getAuditorFirstName(), response.getBody().getAuditorFirstName());
+        assertEquals(auditor.getAuditorID(), response.getBody().getAuditorID());
 
     }
 
@@ -64,7 +64,7 @@ class AuditorControllerTest {
 
     @Test
     void d_getAll(){
-        String url = BASE_URL + "/getall";
+        String url = BASE_URL + "/getAll";
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity<>(null, headers);
         ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);

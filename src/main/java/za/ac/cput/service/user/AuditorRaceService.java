@@ -9,7 +9,7 @@ import java.util.Set;
 @Service
 public class AuditorRaceService implements IAuditorRaceService {
     private static AuditorRaceService service = null;
-    private AuditorRaceRepository repository = null;
+    private AuditorRaceRepository repository ;
 
 
     private AuditorRaceService(){
