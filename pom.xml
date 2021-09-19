@@ -35,22 +35,24 @@
     </dependency>
 
 
-
-    <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
     <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <version>RELEASE</version>
-      <scope>test</scope>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
 
-    <!-- Added dependency for JUnit 5 -->
     <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <version>5.7.2</version>
-      <scope>test</scope>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <scope>runtime</scope>
     </dependency>
-    <!-- ... -->
+
   </dependencies>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+
+      </plugins>
+    </pluginManagement>
+  </build>
 </project>

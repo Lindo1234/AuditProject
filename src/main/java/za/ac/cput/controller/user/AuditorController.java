@@ -23,33 +23,25 @@ public class AuditorController {
     @Autowired
     private AuditorService auditorService;
 
-    @RequestMapping(value = "create", method = RequestMethod.POST)
-
-    public Auditor create(@RequestBody Auditor auditor) {
-        //@PostMapping("/create")
-        Auditor newauditor = AuditorFactory.buildAuditor(auditor.getAuditorID(), auditor.getAuditorFirstName(),
-                auditor.getAuditorSurname(), auditor.getCellphone());
-            return auditorService.create(newauditor);
+  //  @RequestMapping(value = "create", method = RequestMethod.POST)
 
 
-    }
-        // @PostMapping("/create")
-        //public Auditor create(@RequestBody Auditor auditor) {
-        // return auditorService.create(auditor);
-        // }
-        //Create not working
+   @PostMapping("/create")
+   public Auditor create(@RequestBody Auditor auditor){
+       Auditor newAuditor = AuditorFactory.buildAuditor(auditor.getAuditorID(), auditor.getAuditorFirstName(),
+               auditor.getAuditorSurname(), auditor.getCellphone());
+       return auditorService.create(newAuditor);
+   }
 
-      @GetMapping("/read{auditorID}")
-        public Auditor read (@PathVariable String auditorID){
-            return auditorService.read(auditorID);
+    @GetMapping("/read{auditorID}")
+    public Auditor read (@PathVariable String auditorID){
+        return auditorService.read(auditorID);
 
     }
     @PostMapping("/update")
     public Auditor update(@RequestBody Auditor auditor){
        return auditorService.update(auditor);
     }
-
-    //delete not working
 
     @DeleteMapping("/delete")
         public boolean delete(@RequestBody String auditorID){

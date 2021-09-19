@@ -3,14 +3,28 @@ package za.ac.cput.entity.user;
  * Author: Lindokuhle Xaki (215041720)
  * Auditor class
  */
+
+
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Auditor {
+
     private String auditorID;
     private String auditorFirstName;
     private String auditorSurname;
     private String cellphone;
+    @Id
+    @GeneratedValue
+    private Long id;
 
 
-    private Auditor(){}
+    public Auditor(){
+
+    }
 
     private Auditor(Builder builder) {
         this.auditorID = builder.auditorID;
@@ -44,6 +58,15 @@ public class Auditor {
                 '}';
 
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
 
     public static class Builder {
 

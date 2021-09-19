@@ -16,7 +16,7 @@ import za.ac.cput.service.user.AuditorService;
 @RestController
 @RequestMapping("/auditorrace")
 public class AuditorRaceController {
-
+//ALL THIS WAS SUPPOSED TO BE IN AUDITORCONTROLLER AND VICE VERSA
     @Autowired
     private AuditorService auditorService;
 
